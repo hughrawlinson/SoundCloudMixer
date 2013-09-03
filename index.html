@@ -1,0 +1,269 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>peeeenis</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <link rel="stylesheet" href="styles/db4badba.main.css">
+        <!-- build:css(.tmp) styles/bootstrap.css !-->
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <script src="scripts/vendor/f7f27360.modernizr.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 10]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+<!-- Modal -->
+<div class="modal fade" id="selectTrack" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Load Song</h4>
+            </div>
+            <div class="modal-body">
+                <form role="form">
+                    <label for="artistSearchInput">
+                        <input id="artistSearchInput" type="text" class="form-control" type="text">
+                    </label>
+                    <button type="button" class="btn btn-default" id="artistSearch">Search...</button>
+                    <div class="hidden well" id="artistList">
+                        <ul></ul>
+                    </div>
+                    <input id="scid" class="form-control" type="hidden">
+                    <input id="channelTarget" type="hidden">
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button id="loadButton" type="button" class="btn btn-primary">Load</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+        <div class="container">
+            <div class="page-header">
+                <h1>SCNEVE <small>A 6 track mixer for SoundCloud tracks</small></h1>
+            </div>
+            <div class="row">
+                <div id="channel1" data-channel-index="0" class="channel col-md-2">
+                    <audio autobuffer="">
+                    </audio>
+                    <div class="soundcloudLoad">
+                        <h3>Load from SoundCloud</h3>
+                        <a href="#selectTrack" role="button" class="btn btn-primary selectTrackButton" data-toggle="modal">Select Track</a>
+                    </div>
+                    <div class="params">
+                        <h3>Params</h3>
+                        <label for="audioPlaybackSpeed">Playback Speed  <br>
+                            <input class="audioPlaybackSpeed" type="range" name="points" min="0.25" max="3" default="1" step="0.01">
+                        </label><br>
+                        <label for="audioPan">Audio Pan<br>   
+                            <input disabled="disabled" class="audioPan" type="range" name="points" min="0.25" max="3" default="1" step="0.01">
+                        </label><br>
+                        <label for="audioLPF">Audio LPF<br>   
+                            <input disabled="disabled" class="audioLPF" type="range" name="points" min="15" max="22000" default="1" step="0.01">
+                        </label><br>
+                    </div>
+                    <div class="transport">
+                        <h3>Transport</h3>
+                        <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-play"></span><br>Play</button>
+                    </div>
+                    <div class="levels">
+                        <h3>Levels</h3>
+                        <label for="audioVolume">Volume<br>
+                            <input id="audioVolume" type="range" name="points" min="0" max="1" default="1" step="0.01">
+                        </label><br>
+                    </div>
+                </div>
+                <div id="channel2" data-channel-index="1" class="channel col-md-2">
+                    <audio autobuffer="">
+                    </audio>
+                    <div class="soundcloudLoad">
+                        <h3>Load from SoundCloud</h3>
+                        <a href="#selectTrack" role="button" class="btn btn-primary selectTrackButton" data-toggle="modal">Select Track</a>
+                    </div>
+                    <div class="params">
+                        <h3>Params</h3>
+                        <label for="audioPlaybackSpeed">Playback Speed  <br>
+                            <input class="audioPlaybackSpeed" type="range" name="points" min="0.25" max="3" default="1" step="0.01">
+                        </label><br>
+                        <label for="audioPan">Audio Pan<br>   
+                            <input disabled="disabled" class="audioPan" type="range" name="points" min="0.25" max="3" default="1" step="0.01">
+                        </label><br>
+                        <label for="audioLPF">Audio LPF<br>   
+                            <input disabled="disabled" class="audioLPF" type="range" name="points" min="15" max="22000" default="1" step="0.01">
+                        </label><br>
+                    </div>
+                    <div class="transport">
+                        <h3>Transport</h3>
+                        <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-play"></span><br>Play</button>
+                    </div>
+                    <div class="levels">
+                        <h3>Levels</h3>
+                        <label for="audioVolume">Volume<br>
+                            <input id="audioVolume" type="range" name="points" min="0" max="1" default="1" step="0.01">
+                        </label><br>
+                    </div>
+                </div>
+                <div id="channel3" data-channel-index="2" class="channel col-md-2">
+                    <audio autobuffer="">
+                    </audio>
+                    <div class="soundcloudLoad">
+                        <h3>Load from SoundCloud</h3>
+                        <a href="#selectTrack" role="button" class="btn btn-primary selectTrackButton" data-toggle="modal">Select Track</a>
+                    </div>
+                    <div class="params">
+                        <h3>Params</h3>
+                        <label for="audioPlaybackSpeed">Playback Speed  <br>
+                            <input class="audioPlaybackSpeed" type="range" name="points" min="0.25" max="3" default="1" step="0.01">
+                        </label><br>
+                        <label for="audioPan">Audio Pan<br>   
+                            <input disabled="disabled" class="audioPan" type="range" name="points" min="0.25" max="3" default="1" step="0.01">
+                        </label><br>
+                        <label for="audioLPF">Audio LPF<br>   
+                            <input disabled="disabled" class="audioLPF" type="range" name="points" min="15" max="22000" default="1" step="0.01">
+                        </label><br>
+                    </div>
+                    <div class="transport">
+                        <h3>Transport</h3>
+                        <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-play"></span><br>Play</button>
+                    </div>
+                    <div class="levels">
+                        <h3>Levels</h3>
+                        <label for="audioVolume">Volume<br>
+                            <input id="audioVolume" type="range" name="points" min="0" max="1" default="1" step="0.01">
+                        </label><br>
+                    </div>
+                </div>
+                <div id="channel4" data-channel-index="3" class="channel col-md-2">
+                    <audio autobuffer="">
+                    </audio>
+                    <div class="soundcloudLoad">
+                        <h3>Load from SoundCloud</h3>
+                        <a href="#selectTrack" role="button" class="btn btn-primary selectTrackButton" data-toggle="modal">Select Track</a>
+                    </div>
+                    <div class="params">
+                        <h3>Params</h3>
+                        <label for="audioPlaybackSpeed">Playback Speed  <br>
+                            <input class="audioPlaybackSpeed" type="range" name="points" min="0.25" max="3" default="1" step="0.01">
+                        </label><br>
+                        <label for="audioPan">Audio Pan<br>   
+                            <input disabled="disabled" class="audioPan" type="range" name="points" min="0.25" max="3" default="1" step="0.01">
+                        </label><br>
+                        <label for="audioLPF">Audio LPF<br>   
+                            <input disabled="disabled" class="audioLPF" type="range" name="points" min="15" max="22000" default="1" step="0.01">
+                        </label><br>
+                    </div>
+                    <div class="transport">
+                        <h3>Transport</h3>
+                        <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-play"></span><br>Play</button>
+                    </div>
+                    <div class="levels">
+                        <h3>Levels</h3>
+                        <label for="audioVolume">Volume<br>
+                            <input id="audioVolume" type="range" name="points" min="0" max="1" default="1" step="0.01">
+                        </label><br>
+                    </div>
+                </div>
+                <div id="channel5" data-channel-index="4" class="channel col-md-2">
+                    <audio autobuffer="">
+                    </audio>
+                    <div class="soundcloudLoad">
+                        <h3>Load from SoundCloud</h3>
+                        <a href="#selectTrack" role="button" class="btn btn-primary selectTrackButton" data-toggle="modal">Select Track</a>
+                    </div>
+                    <div class="params">
+                        <h3>Params</h3>
+                        <label for="audioPlaybackSpeed">Playback Speed  <br>
+                            <input class="audioPlaybackSpeed" type="range" name="points" min="0.25" max="3" default="1" step="0.01">
+                        </label><br>
+                        <label for="audioPan">Audio Pan<br>   
+                            <input disabled="disabled" class="audioPan" type="range" name="points" min="0.25" max="3" default="1" step="0.01">
+                        </label><br>
+                        <label for="audioLPF">Audio LPF<br>   
+                            <input disabled="disabled" class="audioLPF" type="range" name="points" min="15" max="22000" default="1" step="0.01">
+                        </label><br>
+                    </div>
+                    <div class="transport">
+                        <h3>Transport</h3>
+                        <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-play"></span><br>Play</button>
+                    </div>
+                    <div class="levels">
+                        <h3>Levels</h3>
+                        <label for="audioVolume">Volume<br>
+                            <input id="audioVolume" type="range" name="points" min="0" max="1" default="1" step="0.01">
+                        </label><br>
+                    </div>
+                </div>
+                <div id="channel6" data-channel-index="5" class="channel col-md-2">
+                    <audio autobuffer="">
+                    </audio>
+                    <div class="soundcloudLoad">
+                        <h3>Load from SoundCloud</h3>
+                        <a href="#selectTrack" role="button" class="btn btn-primary selectTrackButton" data-toggle="modal">Select Track</a>
+                    </div>
+                    <div class="params">
+                        <h3>Params</h3>
+                        <label for="audioPlaybackSpeed">Playback Speed  <br>
+                            <input class="audioPlaybackSpeed" type="range" name="points" min="0.25" max="3" default="1" step="0.01">
+                        </label><br>
+                        <label for="audioPan">Audio Pan<br>   
+                            <input disabled="disabled" class="audioPan" type="range" name="points" min="0.25" max="3" default="1" step="0.01">
+                        </label><br>
+                        <label for="audioLPF">Audio LPF<br>   
+                            <input disabled="disabled" class="audioLPF" type="range" name="points" min="15" max="22000" default="1" step="0.01">
+                        </label><br>
+                    </div>
+                    <div class="transport">
+                        <h3>Transport</h3>
+                        <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-play"></span><br>Play</button>
+                    </div>
+                    <div class="levels">
+                        <h3>Levels</h3>
+                        <label for="audioVolume">Volume<br>
+                            <input id="audioVolume" type="range" name="points" min="0" max="1" default="1" step="0.01">
+                        </label><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="footer" style="box-sizing:border-box">
+            <div class="container">
+                <p class="text-muted credit">A Code O'Clock production, made possible by Hackference Birmingham 2013.</p>
+            </div>
+        </div>
+
+        <script src="scripts/553aac54.vendor.js"></script>
+
+        <!-- SoundCloud API Setup -->
+        <script src="//connect.soundcloud.com/sdk.js"></script>
+        <script>
+        SC.initialize({
+            client_id: "50403709b2a45e66950192c809807b09"
+        });
+        </script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');
+        </script>
+
+        <script data-main="scripts/89c832fc.main" src="bower_components/requirejs/require.js"></script>
+        <script src="scripts/vendor/6ec9174b.bootstrap.js"></script>
+</body>
+</html>
